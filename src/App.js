@@ -9,7 +9,7 @@ const HomeComponent = React.lazy(() => import("./components/Home/Home"));
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="/">
         <Switch>
           <Route exact path={"/"}>
             <Suspense

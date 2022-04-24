@@ -13,6 +13,7 @@ const Header = () => {
       setChangeNavbarBG(false);
     }
   };
+  console.log(navbarToggler);
   window.addEventListener("scroll", changeNavbarBackground);
   const handleClick = () => {
     setNavbarToggler(!navbarToggler);
@@ -37,7 +38,7 @@ const Header = () => {
         className={changeNavbarBG ? "navbar active" : "navbar"}
         id="navbar"
         style={{
-          backgroundColor: navbarToggler && "/212121",
+          backgroundColor: navbarToggler && "#212121",
           animation: "1s ease-in",
           color: "/fff",
         }}
