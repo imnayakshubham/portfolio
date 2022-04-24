@@ -1,0 +1,32 @@
+.errorpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.error-code > h1 {
+  font-size: 200px;
+}
+
+.error-reason>h1{
+  font-size: 7.5rem;
+
+}
+.go-back{
+  margin-top: 1rem;
+}
+.go-back > a {
+  text-decoration: none;
+  font-size: 25px;
+  border-radius: 5px;
+}
+.error-message{
+  font-size: 50px;
+  text-align: center;
+
+}
+.error-message>p{
+  margin: 2rem;
+}

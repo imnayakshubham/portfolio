@@ -1,0 +1,12 @@
+.Experience {
+  text-align: center;
+  text-decoration: underline;
+  color: #ff7603;
+}
+
+.work {
+  width: 1200px;
+  min-height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
