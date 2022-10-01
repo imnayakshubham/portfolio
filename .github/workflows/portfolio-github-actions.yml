@@ -1,10 +1,11 @@
+# Triggers
 on:
   push:
-    - master
-  pull_request:
-    branch:
+    branches:
       - master
-
+  pull_request:
+    branches:
+      - master
 jobs:
   build:
     name: Build
@@ -14,35 +15,31 @@ jobs:
         uses: actions/checkout@v2
       - name: Install Node
         uses: actions/setup-node@v1
-        with: 
+        with:
           node-version: 16.x
       - name: Install Dependencies
         run: npm ci
       - name: Build Project
         run: npm run build
-      -name: Upload Artifacts
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v2
-        with: 
+        with:
           name: production-files
           path: ./dist
 
-deploy:
-  name: Deploy
-  runs-on: ubuntu-latest
-  needs: build
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
 
-  steps:
-    - name: Download Artifact
-      uses: actions/download-artifact@v2
-      with: 
-        name: production-files
-        path: ./dist
-      
-    - name: Deploy to gh pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token : ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
-        publish_dir: ./dist
-
-
-
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+      - name: Deploy to gh pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
+          publish_dir: ./dist
